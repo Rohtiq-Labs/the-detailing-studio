@@ -1,9 +1,26 @@
-export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80",
-] as const;
+const VIDEO_BASE = "/assets/videos";
 
-export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1553440569-bcc63903a83d?auto=format&fit=crop&w=2000&q=80";
+export const VIDEOS = {
+  hero: `${VIDEO_BASE}/vid-01.mp4`,
+  services: [
+    `${VIDEO_BASE}/vid-02.mp4`,
+    `${VIDEO_BASE}/vid-03.mp4`,
+    `${VIDEO_BASE}/vid-04.mp4`,
+    `${VIDEO_BASE}/vid-05.mp4`,
+  ],
+  gallery: [
+    `${VIDEO_BASE}/vid-06.mp4`,
+    `${VIDEO_BASE}/vid-07.mp4`,
+    `${VIDEO_BASE}/vid-08.mp4`,
+    `${VIDEO_BASE}/vid-09.mp4`,
+  ],
+} as const;
+
+export const HERO_VIDEO = VIDEOS.hero;
+export const CTA_VIDEO = VIDEOS.hero;
+
+export const ALL_VIDEOS = [
+  VIDEOS.hero,
+  ...VIDEOS.services,
+  ...VIDEOS.gallery,
+] as const;

@@ -1,12 +1,8 @@
-"use client";
-
-import { useLanguage } from "@/context/LanguageContext";
+import { dictionary as t } from "@/data/dictionary";
 import { SITE } from "@/data/site";
 import type { ReactElement } from "react";
 
 export const Footer = (): ReactElement => {
-  const { dictionary: t } = useLanguage();
-
   return (
     <footer>
       <div className="wrap">

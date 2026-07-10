@@ -1,12 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
+import { dictionary as t } from "@/data/dictionary";
 import { Reveal } from "@/hooks/useReveal";
 import type { ReactElement } from "react";
 
 export const MobileArea = (): ReactElement => {
-  const { dictionary: t } = useLanguage();
-
   return (
     <section className="mobile-area pad-l" id="area">
       <div className="wrap" style={{ position: "relative" }}>
@@ -15,44 +13,26 @@ export const MobileArea = (): ReactElement => {
         </span>
 
         <div className="mobile-area-grid">
-          <Reveal className="mobile-area-copy">
+          <Reveal className="mobile-area-lead">
             <div className="eyebrow">{t.area.eyebrow}</div>
-            <h2 style={{ marginTop: 18 }}>{t.area.headline}</h2>
-            <p>{t.area.body}</p>
-
-            <ul className="mobile-area-points">
-              {t.area.points.map((point, i) => (
-                <li key={point.title}>
-                  <span className="point-num">0{i + 1}</span>
-                  <div>
-                    <strong>{point.title}</strong>
-                    <span>{point.body}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <h2>{t.area.headline}</h2>
           </Reveal>
 
-          <Reveal className="mobile-area-panel">
-            <div className="area-radar" aria-hidden="true">
-              <span className="radar-ring r1" />
-              <span className="radar-ring r2" />
-              <span className="radar-ring r3" />
-              <span className="radar-core" />
-              <span className="radar-dot d1" />
-              <span className="radar-dot d2" />
-              <span className="radar-dot d3" />
-              <span className="radar-dot d4" />
-              <span className="radar-label">GTA · ON</span>
+          <Reveal className="mobile-area-details">
+            <p className="mobile-area-body">{t.area.body}</p>
+
+            <div className="mobile-area-block">
+              <div className="area-label">{t.area.serviceAreaLabel}</div>
+              <p className="area-primary">{t.area.primaryLocation}</p>
             </div>
 
-            <div className="area-cities-block">
-              <div className="area-cities-label">{t.area.citiesLabel}</div>
-              <div className="area-cities">
+            <div className="mobile-area-block">
+              <div className="area-label">{t.area.nearbyLabel}</div>
+              <ul className="area-nearby-list" aria-label={t.area.nearbyLabel}>
                 {t.area.cities.map((city) => (
-                  <span key={city}>{city}</span>
+                  <li key={city}>{city}</li>
                 ))}
-              </div>
+              </ul>
             </div>
           </Reveal>
         </div>

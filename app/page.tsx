@@ -3,6 +3,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Contact } from "@/components/sections/Contact/Contact";
+import { ReachUs } from "@/components/sections/ReachUs/ReachUs";
 import { Gallery } from "@/components/sections/Gallery/Gallery";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { MobileArea } from "@/components/sections/MobileArea/MobileArea";
@@ -20,6 +21,7 @@ export default function Home(): ReactElement {
         <Gallery />
         <Testimonials />
         <MobileArea />
+        <ReachUs />
         <Contact />
       </main>
       <Footer />

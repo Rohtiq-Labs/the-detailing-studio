@@ -1,11 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
+import { dictionary as t } from "@/data/dictionary";
 import { Reveal } from "@/hooks/useReveal";
 import type { ReactElement } from "react";
 
 export const Testimonials = (): ReactElement => {
-  const { dictionary: t, locale } = useLanguage();
   const items = t.testimonials.items;
   const loop = [...items, ...items];
 
@@ -25,11 +24,7 @@ export const Testimonials = (): ReactElement => {
         </Reveal>
       </div>
 
-      <div
-        className={`marquee${locale === "UR" ? " marquee-rtl" : ""}`}
-        role="region"
-        aria-roledescription="marquee"
-      >
+      <div className="marquee" role="region" aria-roledescription="marquee">
         <div className="marquee-track">
           {loop.map((item, i) => (
             <blockquote

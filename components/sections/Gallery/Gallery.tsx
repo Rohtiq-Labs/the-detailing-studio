@@ -1,12 +1,12 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import { GALLERY_IMAGES } from "@/data/media";
+import { MediaVideo } from "@/components/ui/MediaVideo";
+import { dictionary as t } from "@/data/dictionary";
+import { VIDEOS } from "@/data/media";
 import { Reveal } from "@/hooks/useReveal";
 import { useEffect, useRef, type ReactElement } from "react";
 
 export const Gallery = (): ReactElement => {
-  const { dictionary: t } = useLanguage();
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -64,8 +64,11 @@ export const Gallery = (): ReactElement => {
           {t.gallery.items.map((item, i) => (
             <div className="gitem" key={item.num}>
               <div className="gimg">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={GALLERY_IMAGES[i]} alt={item.imageAlt} />
+                <MediaVideo
+                  src={VIDEOS.gallery[i]}
+                  className="gal-vid"
+                  label={item.imageAlt}
+                />
               </div>
               <div className="gcap">
                 <span>{item.label}</span>

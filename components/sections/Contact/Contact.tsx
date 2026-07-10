@@ -1,18 +1,16 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import { HERO_IMAGE } from "@/data/media";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
+import { dictionary as t } from "@/data/dictionary";
+import { CTA_VIDEO } from "@/data/media";
 import { SITE } from "@/data/site";
 import { Reveal } from "@/hooks/useReveal";
 import type { ReactElement } from "react";
 
 export const Contact = (): ReactElement => {
-  const { dictionary: t } = useLanguage();
-
   return (
-    <section className="final pad-l" id="contact">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="bg" src={HERO_IMAGE} alt="" aria-hidden="true" />
+    <section className="final pad-l" id="book">
+      <BackgroundVideo src={CTA_VIDEO} />
       <div className="scrim" aria-hidden="true" />
       <div className="wrap">
         <Reveal>
